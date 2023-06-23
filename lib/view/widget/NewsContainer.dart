@@ -6,9 +6,11 @@ class NewsContainer extends StatelessWidget {
   String newsHead;
   String newsDes;
   String newsUrl;
+  String newsContent;
 
     NewsContainer({super.key,
     required this.imgUrl,
+    required this.newsContent,
     required this.newsHead,
     required this.newsUrl,
     required this.newsDes,
@@ -30,8 +32,6 @@ class NewsContainer extends StatelessWidget {
                 fit: BoxFit.cover,
                 imgUrl),
 
-                
-
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
@@ -49,7 +49,16 @@ class NewsContainer extends StatelessWidget {
               fontWeight: FontWeight.bold,
               ),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Text(newsDes,
+              style: TextStyle(fontSize: 12, color: Colors.black38),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(newsContent,
               style: TextStyle(fontSize: 16,),
               ),
 

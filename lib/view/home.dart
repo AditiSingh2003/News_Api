@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/view/widget/NewsContainer.dart';
 
+import '../controller/fetchNews.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -10,6 +12,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+
+  void initState() {
+    FetchNews.fetchNews();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
@@ -19,11 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.vertical,
         itemCount: 10,
         itemBuilder: (context, index) {
+          FetchNews.fetchNews();
           return NewsContainer(
             imgUrl: "https://cdn.wionews.com/sites/default/files/styles/story_page/public/2023/06/22/361299-mofi-wer.png?imwidth=1920",
             newsHead: "PM Modi in highlights: US planning to ease H1-B visa rule for Indians, say report",
-            newsDes: "PM Modi arrived in Washington DC on Wednesday on his second leg of the state visit to the US. He is expected to hold bilateral discussions with his American counterpart Joe Biden, and he will also address a joint session of the US Congress.",
+            newsContent: "PM Modi arrived in Washington DC on Wednesday on his second leg of the state visit to the US. He is expected to hold bilateral discussions with his American counterpart Joe Biden, and he will also address a joint session of the US Congress.",
             newsUrl: "https://www.wionews.com/world/pm-modi-in-us-live-updates-indian-pm-interacts-with-indian-and-american-students-607104",
+            newsDes: "PM Modi arrived in Washington DC on Wednesda",
           );
         }),
     );
